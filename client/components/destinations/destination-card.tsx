@@ -2,54 +2,10 @@
 
 import Link from "next/link"
 import Image from "next/image"
-import { Plus, Star, ArrowUpRight } from "lucide-react"
+import { Star } from "lucide-react"
 import { motion, useReducedMotion } from "motion/react"
-import {
-  Popover,
-  PopoverContent,
-  PopoverTrigger,
-} from "@/components/ui/popover"
 import type { Place } from "@/lib/places"
 import { cn } from "@/lib/utils"
-
-/**
- * The legacy card carried a small "+" button revealing exactly two options —
- * "View details" and "Book this trip". That affordance is preserved here, now
- * on a Popover so it closes on outside-click and Escape and is keyboard
- * reachable, which the old `toggleOptions` handler was not.
- */
-function OptionsMenu({ place }: { place: Place }) {
-  return (
-    <Popover>
-      <PopoverTrigger
-        aria-label={`Options for ${place.name}`}
-        onClick={(e) => e.stopPropagation()}
-        className="group/opt flex h-9 w-9 items-center justify-center rounded-full border border-sand-100/25 bg-brand-950/35 text-sand-100 backdrop-blur-md transition-all duration-300 [transition-timing-function:var(--ease-out-expo)] hover:scale-105 hover:bg-brand-950/60 focus-visible:scale-105 data-[state=open]:rotate-45 data-[state=open]:bg-sand-200 data-[state=open]:text-brand-900"
-      >
-        <Plus className="h-4 w-4" />
-      </PopoverTrigger>
-      <PopoverContent
-        align="end"
-        sideOffset={10}
-        className="w-48 overflow-hidden rounded-xl border-sand-300 bg-paper p-1 shadow-[0_18px_40px_-24px_rgba(1,44,43,0.45)]"
-        onClick={(e) => e.stopPropagation()}
-      >
-        <Link
-          href={`/destinations/${place.slug}`}
-          className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink-900 transition-colors hover:bg-brand-50"
-        >
-          View details <ArrowUpRight className="h-3.5 w-3.5 text-ink-300" />
-        </Link>
-        <Link
-          href={`/book/${place.slug}`}
-          className="flex items-center justify-between rounded-lg px-3 py-2.5 text-sm text-ink-900 transition-colors hover:bg-brand-50"
-        >
-          Book this trip <ArrowUpRight className="h-3.5 w-3.5 text-ink-300" />
-        </Link>
-      </PopoverContent>
-    </Popover>
-  )
-}
 
 export function DestinationCard({
   place,
@@ -110,10 +66,6 @@ export function DestinationCard({
           ${place.price}
         </span>
       </Link>
-
-      <div className="absolute top-3.5 right-3.5 z-10">
-        <OptionsMenu place={place} />
-      </div>
 
       <div className="mt-4 flex flex-1 flex-col">
         <p className="eyebrow text-ink-300">{place.region}</p>

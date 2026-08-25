@@ -10,12 +10,6 @@ const nextConfig = {
         destination: "/destinations/:slug",
         permanent: false,
       },
-      {
-        source: "/book.html",
-        has: [{ type: "query", key: "slug" }],
-        destination: "/book/:slug",
-        permanent: false,
-      },
       { source: "/index.html", destination: "/", permanent: false },
       { source: "/destinations.html", destination: "/destinations", permanent: false },
       { source: "/place.html", destination: "/destinations", permanent: false },

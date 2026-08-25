@@ -128,7 +128,7 @@ export default async function PlacePage({ params }: Params) {
             </Reveal>
           </div>
 
-          {/* --------------------- booking rail --------------------- */}
+          {/* --------------------- detail rail --------------------- */}
           <aside className="lg:sticky lg:top-28 lg:self-start">
             <Reveal delay={0.15}>
               <div className="rounded-[4px] border border-sand-300 bg-paper p-7">
@@ -161,20 +161,11 @@ export default async function PlacePage({ params }: Params) {
                 </div>
 
                 <Link
-                  href={`/book/${place.slug}`}
+                  href="/chat"
                   className="group mt-5 flex w-full items-center justify-center gap-2 rounded-full bg-brand-700 px-6 py-4 text-sm font-medium text-sand-100 transition-all duration-500 [transition-timing-function:var(--ease-out-expo)] hover:-translate-y-0.5 hover:bg-brand-800 active:translate-y-0"
                 >
-                  Book this trip
+                  Ask about {place.name}
                   <ArrowRight className="h-4 w-4 transition-transform duration-500 [transition-timing-function:var(--ease-out-expo)] group-hover:translate-x-1" />
-                </Link>
-
-                <Link
-                  href="/chat"
-                  className="mt-3 block text-center text-[0.82rem] text-ink-500 transition-colors hover:text-brand-700"
-                >
-                  <span className="link-underline">
-                    Ask the assistant about {place.name}
-                  </span>
                 </Link>
               </div>
             </Reveal>

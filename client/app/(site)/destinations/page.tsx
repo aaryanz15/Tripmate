@@ -27,8 +27,8 @@ export default function DestinationsPage() {
         <Reveal delay={0.1}>
           <div className="mt-10 flex flex-col gap-6 border-b border-sand-300 pb-10 md:flex-row md:items-end md:justify-between">
             <p className="max-w-md text-[0.95rem] leading-relaxed text-ink-500">
-              Mountains, coast and backwater. Every card opens a full itinerary,
-              or use the small button for the shortcut straight to booking.
+              Mountains, coast and backwater. Every card opens a full
+              itinerary, with the practical detail that matters on the ground.
             </p>
             <DestinationSearchField className="w-full md:max-w-sm" />
           </div>
